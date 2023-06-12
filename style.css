@@ -1,0 +1,450 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+    
+}
+
+h1{
+  color: rgb(216, 0, 216);
+  margin: 20px 0px 20px;
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+h2 {
+  color:black;
+  text-align: center; /* Center the h2 element horizontally */
+  font-size: 50px;
+  margin-bottom: 25px;
+}
+h3{
+  color:#fcfc ;
+  font-size: 25px;
+  margin-bottom: 50px;
+}
+h4{
+  color:#fcfc;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+h5{
+  color:white;
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+p {
+  font-size: 30px;
+  line-height: 1.5;
+  
+}
+button{
+  background-color: #f9004d;
+  color: white;
+  text-decoration: none;
+  border: 2px solid transparent;
+  font-weight: bold;
+  padding: 10px 30px;
+  border-radius: 30px;
+  transition: .4s;
+}
+button:hover{
+  background-color: transparent;
+  border: 2px solid #f9004d;
+  cursor: pointer;
+ }
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 45px;
+  padding-left: 8%;
+  padding-right: 8%;
+} 
+nav ul li{
+  list-style-type: none;
+  display: inline-block;
+  padding: 10px 25px;
+}
+nav ul li a{
+  color: yellow;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+nav ul li a:hover{
+  color: yellow;
+  transition: .4s;
+} 
+footer{
+  position: relative;
+  width:100%;
+  background: #101010;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 25px;
+
+}
+footer p:nth-child(1){
+  font-size: 30px;
+  color: white;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+footer p:nth-child(2){
+  color: white;
+  font-size: 17px;
+  width: 500px;
+  text-align: center;
+  line-height: 26px;
+  margin-bottom: 10px;
+}
+.end{
+  font-size: 12px;
+  font-weight: bold;
+}
+.contactForm {
+  max-width: 400px;
+  margin: 0 auto; /* Center the form horizontally */
+  margin-top: 20px;
+  margin-bottom: 20px; /* Add margin at the bottom of the form */
+  background-color: black; /* Set the background color of the form container */
+  padding: 20px; /* Add some padding around the form */
+}
+.contactForm div {
+  margin-bottom: 10px;
+}
+.contactForm label {
+  display: block;
+  font-weight: bold;
+  color: white; /* Set the label color to white */
+}
+.contactForm input[type="text"],
+.contactForm input[type="email"],
+.contactForm textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white; /* Set the background color of the form inputs */
+}
+.contactForm button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.hero{
+    height: 100vh;
+    width: 100%;
+    background-image: url(background.jpg);
+    background-size: cover;
+    background-position: left;
+    background-color: black;   
+}
+.logo{
+  color: white;
+  font-size: 50 px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.logo span{
+  color: #f9004d;
+}
+.btn{
+  background-color: #f9004d;
+  color: white;
+  text-decoration: none;
+  border: 2px solid transparent;
+  font-weight: bold;
+  padding: 10px 25px;
+  border-radius: 30px;
+  transition: transform .4s;
+}
+.btn:hover{
+    transform: scale(1.2);
+}
+.content{
+  position: absolute;
+  top: 40%;
+  left: 8%;
+  transform: translateY(-50%);
+} 
+.content h1{
+  text-align: left;
+  color: purple;
+  margin: 20px 0px 20px;
+  font-size: 50px;
+}
+.newslatter form{
+  width: 380px;
+  max-width: 100%;
+  position: relative;
+}
+.newslatter form input:first-child{
+  display: inline-block;
+  width: 100%;
+  padding: 14px 130px 14px 15px;
+  border: 2px solid #f9004d;
+  outline: none;
+  border-radius: 30px;
+}
+.newslatter form input:last-child{
+  position: absolute;
+  display: inline-block;
+  outline: none;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 30px;
+  background-color: #f9004d;
+  color: white;
+  box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+  top: 6px;
+  right: 6px;
+    
+}
+.slideshow-container {
+  padding: 100px 15px;
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+  background-color: #717171;
+}
+.mySlides {
+  display: none;
+}
+.mySlides img {
+  vertical-align: middle;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+.about {
+  background-color:hwb(0 13% 86%);
+  color: white;
+  padding: 25px 120px;
+  
+}
+.main {
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: rigth;
+  flex-wrap: wrap;
+} 
+.main img{
+  border-radius: 50px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+}
+.about-text {
+  text-align: center;
+}
+.service{
+  background: #101010;
+  width: 100%;
+  padding: 100px 200px;
+}
+.title h2{
+  color:purple;
+  font-size: 75px;
+  width:1130px;
+  margin:30px auto;
+  text-align: center;
+}  
+.card{
+  height: 300px;
+  width: 100%;
+  padding: 20px 35px;
+  background: rgb(203, 109, 32);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  font-size: 50px;
+  display: block;
+  text-align: center;
+  margin: 25px 25px;
+  color:#ffd7e4;
+}
+
+.par p{
+  color: yellow;
+  font-size: 16px;
+  line-height: 27px;
+  margin-bottom: 25px;
+}
+.card  .button{
+  background-color: #f9004d;
+  color: white;
+  text-decoration: none;
+  border: 2px solid transparent;
+  font-weight: bold;
+  padding: 1px 1px;
+  border-radius: 30px;
+  transition: .4s;
+}
+.card .button:hover{
+  background-color: transparent;
+  border: 2px solid #110207;
+  cursor: pointer;
+}
+.read-more-container{
+  display: flex;
+  flex-direction: column;
+  color: #111;
+  gap: 1rem;
+}
+.skills{
+  padding: 100px 200px;
+  background-color: #fff1f1;
+}
+.container p{
+  font-size: 18px;
+  text-align: justify;
+}
+.read-more-btn{
+  color: #0984e3;
+  cursor: pointer;
+}
+.read-more-text{
+  display: none;
+}
+.read-more-text--show{
+  display: inline;
+}
+.contact-me{
+  width: 100%;
+  height: 290px;
+  background: #191919;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; 
+} 
+.contact-me p{
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+.contact-me .button-tow{
+  background-color: #f9004d;
+  color: white;
+  text-decoration: none;
+  border: 2px solid transparent;
+  font-weight: bold;
+  padding: 13px 30px;
+  border-radius: 30px;
+  transition: .4s;
+}
+.contact-me .button-tow:hover{
+  background-color: transparent;
+  border: 2px solid #f9004d;
+  cursor: pointer;
+}
+
+.social{
+  display: flex;
+}
+.social a{
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: red;
+  border-radius: 50%;
+  margin: 22px 10px;
+  color:black;
+  text-decoration: none;
+  font-size: 20px;
+
+}
+.social a:hover{
+  transform: scale(1.3);
+  transition: .3s;
+}
+.contact us{
+  background-color: blueviolet;
+} 
+.button-two {
+  background-color: black;
+  border-radius: 50%;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.button-two:hover {
+  background-color: gray;
+}
+.button-two:focus {
+  outline: none;
+  box-shadow: 0 0 5px white;
+}
+.button-two:active {
+  transform: scale(0.9);
+} 
+.error {
+  color: red;
+  font-size: 14px;
+}
+.contact {
+  background-color: hwb(251 0% 72%);
+  padding: 25px 10px;
+} 
+@keyframes fade {
+  from {
+    opacity: .4;
+  }
+  to {
+    opacity: 1;
+  }
+}
