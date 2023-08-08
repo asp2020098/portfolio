@@ -7,6 +7,88 @@
     <!-- <link herf="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->  
 </head>
 <body>
+<?php
+                function test_input($data) {
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    $data = htmlspecialchars($data);
+                    return $data;
+                }
+
+                $nameErr = $emailErr = $messageErr = "";
+
+                $name = $email = $message = "";
+
+                $validated  = true;
+
+
+               if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    if (empty($_POST["name"])) {
+                    $fnameErr = "Name is required";
+                    $validated  = false;
+                    } else {
+                    $fname = test_input($_POST["name"]);
+                    if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+                        $nameErr = "Only letters and white space allowed";
+                        $validated  = false;
+                    }
+                    }
+                    
+                    if (empty($_POST["email"])) {
+                    $emailErr = "Email is required";
+                    $validated  = false;
+                    } else {
+                    $email = test_input($_POST["email"]);
+                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        $emailErr = "Invalid email format";
+                        $validated  = false;
+                    }
+                    }
+
+                    if (empty($_POST["message"])) {
+                        $messageErr = "Message is required";
+                        $validated  = false;
+                    } else {
+                    $message = test_input($_POST["message"]);
+                    }
+                    echo '<script type="text/javascript">
+                    window.location = "index.php#contact"
+                    </script>';
+
+                    if($validated){
+                        $host = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $db = "db_musician";
+
+                        $conn = new mysqli($host,$username,$password,$db);
+                        if($conn->connect_error){
+                            echo "$conn->connect_error";
+                            echo '<script>alert("Error Occured...")</script>';
+                            echo '<script type="text/javascript">
+                            window.location = "index.php"
+                            </script>';
+                        } else {
+                            $stmt = $conn->prepare("insert into tbl_mail(name,email,message) values(?, ?, ?)");
+                            $stmt->bind_param("sss", $name,$email,$message);
+                            $execval = $stmt->execute();
+                            //echo '<script>alert("Request Sent...")</script>';
+                            echo '<script>alert("Thank you for being with us..")</script>';
+                            echo '<script type="text/javascript">
+                            window.location = "index.php"
+                            </script>';
+                            $stmt->close();
+                            $conn->close();
+                    }
+                    }else{
+                        echo '<script type="text/javascript">
+                        window.location = "index.php#contactForm"
+                        </script>';
+                    }
+                
+                }
+                
+        ?>
     <!----hero section start---->
     <div class="hero">            
         <nav>
@@ -62,32 +144,8 @@
         <div class="main">
             
             <div class="about-text">
-                <h1>About Me</h1>
-                <p>In Kalamata, on the shores of the Mediterranean, Yanni was born in 1954 to Sotiri and Felitsa Chryssomallis. The second of three children, Yanni has an older brother and a younger sister. Sharing a deep-rooted love of music, the family spent much of their time playing and singing together.
-
-                    Yanni's parents provided a typical Greek life for the young boy. He grew up fishing, swimming, and going to school like every other boy in his town, with one exception. Yanni was born to compose music. He began to play the piano at age six, but he refused formal piano lessons. As a child, Yanni heard music in his head and he simply wanted to hear it come out of the piano too, so he needed to learn how to play to make that happen. He felt a certain freedom with the keys that might have been crushed under the weight of structured learning.
-                    
-                    Music was not Yanni's only talent. In 1969, at the age of 14, Yanni broke the Greek National swimming record for the men's 50-meter freestyle event. Although he could have pursued this skill, he chose to travel a different path; one which eventually led him to share his musical gift with the world.
-                    
-                    His childhood in Greece and his love for his native country gave Yanni his inspiration to compose such songs as "Santorini," "Nostalgia," and "Acroyali."</p>
-                 <br>
-                 <br>   
-                <h2>“The Second Beginning - United States”</h2>  
-                <p>In 1972, with the encouragement of his parents, Yanni left his homeland to attend the University of Minnesota. Between his studies, he played in local rock and roll bands and began to develop his personal musical style using both piano and electronic keyboards to create new sounds.
-
-                    Despite a new culture, a new climate, and a new language, Yanni graduated from the University of Minnesota in 1976 with a Bachelor of Arts degree in Psychology. After graduation, he decided to give music 100% of his effort for one year. He needed to better understand the driving artistic forces that had been such a large part of his childhood years. It was during this year that he chose to make music his vocation.</p>  
-                    <br>
-                    <br>
-                 <h2>"Rock and Roll - The Chameleon Days"</h2>  
-                 <p>Yanni played keyboards for Chameleon, a rock and roll band that became well known in the Twin Cities of Minneapolis and St. Paul. Spurred by their success, Chameleon began to tour regionally - across Minnesota, Wisconsin, Chicago, Iowa, and the Dakotas. They also produced 2 albums independently during this time.
-
-                    By now Yanni knew his future would be in music, and he used his experience with electronic keyboards to begin creating his own compositions. "Optimystique," his first solo album, was independently released in 1980</p> 
-                    <br>
-                    <br>
-                    <h2>“Yanni - On His Own”</h2>
-                    <p>Yanni single-mindedly continued to pursue his passion for creating music. He explored the worlds of electronic music, new sounds and instruments, and composition. This was a very productive and busy time for Yanni. He released 2 albums and worked on a third before moving to Hollywood, the film industry capital, where he recorded 4 film scores and released 3 more albums. He also re-released "Optimystique."
-
-                        In 1990, the Dallas Symphony Orchestra accompanied Yanni in concert, adding a new dimension to his unique style and a prelude of things to come.</p>
+                <h1>ABOUT ME</h1>
+                <p>Yiannis Chryssomallis, known professionally as Yanni, is a Greek composer, keyboardist, pianist, and music producer. Yanni continues to use the musical shorthand that he developed as a child, blending jazz, classical, soft rock, and world music to create predominantly instrumental works.</p>
             </div>
             <img src="pianos.jpg">
         </div>
@@ -136,21 +194,21 @@
     </section>
     <section class="contact" id="contact">
         <h1>Contact Us</h1>
-        <form id="contactForm" action="" method="post" class="contactForm">
+        <form id="contactForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="contactForm">
             <div>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
-                <span id="nameError" class="error"></span>
+                <span class="error"><?php echo $nameErr;?></span>
             </div>
             <div>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
-                <span id="emailError" class="error"></span>
+                <span class="error"><?php echo $emailErr;?></span>
             </div>
             <div>
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" required></textarea>
-                <span id="messageError" class="error"></span>
+                <span class="error"><?php echo $messageErr;?></span>
             </div>
             <button type="submit">Send</button>
         </form>
