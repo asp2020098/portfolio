@@ -25,3 +25,4 @@ Added characteristics:
 
 
 Note: For the website to work effectively, some pictures and external files specified in the HTML code (such as "web-1.jpg," "web-2.jpg," "web-3.jpg," "script.js," etc.) must be correctly linked and hosted.
+The db_musician.sql file add this portfolio
